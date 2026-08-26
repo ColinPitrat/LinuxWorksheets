@@ -7,7 +7,7 @@
 
 Des fiches pour apprendre aux enfants à utiliser la ligne de commande sous Linux.
 
-J'ai aussi des [fiches sur Python](https://github.com/ColinPitrat/PythonWorksheets)
+J'ai aussi des [fiches sur Python](https://github.com/ColinPitrat/PythonWorksheets/blob/main/README-fr.md)
 
 Les fiches au format PDF peuvent être téléchargées:
  - [un fichier par fiche (zip)](https://github.com/ColinPitrat/LinuxWorksheets/releases/download/latest/linux-sheets-fr.zip)
