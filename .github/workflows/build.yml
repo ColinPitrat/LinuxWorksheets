@@ -1,0 +1,65 @@
+name: Build
+
+on: [push]
+
+permissions:
+  # To allow creating releases and attaching artifacts to it.
+  contents: write
+
+jobs:
+  linux-build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update and install packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install poppler-utils zip
+      - name: Convert sheets
+        run: |
+          make
+          pushd build/en/ 
+          zip linux-sheets-en.zip *.pdf
+          popd
+          pushd build/fr/
+          zip linux-sheets-fr.zip *.pdf
+          popd
+      - name: Check PDF files
+        run: |
+          if file build/*/*.pdf | grep -v " [12] page"
+          then
+            echo "Some PDFs have more than 2 pages!"
+            exit 1
+          fi
+      - name: Merged versions
+        run: |
+          for lang in fr en
+          do
+            pushd build/$lang
+            pdfunite *.pdf linux-sheets-${lang}.pdf
+            popd
+          done
+      # Ensure tag is updated, so that the date shown on the release is recent.
+      - uses: richardsimko/update-tag@v1
+        with:
+          tag_name: latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish zips and pdfs
+        uses: softprops/action-gh-release@v2
+        with:
+          name: latest
+          tag_name: latest
+          body: Latest version of the sheets / Dernière version des fiches
+          files: |
+            build/en/linux-sheets-en.zip
+            build/fr/linux-sheets-fr.zip
+            build/en/linux-sheets-en.pdf
+            build/fr/linux-sheets-fr.pdf
+          fail_on_unmatched_files: true
+          draft: false
+          prerelease: false
+          make_latest: true
+          token: ${{ secrets.GITHUB_TOKEN }}
