@@ -16,7 +16,7 @@ jobs:
       - name: Update and install packages
         run: |
           sudo apt-get update
-          sudo apt-get install poppler-utils zip
+          sudo apt-get install fonts-firacode fonts-linuxlibertine poppler-utils zip
           sudo snap install typst
       - name: Convert sheets
         run: |
