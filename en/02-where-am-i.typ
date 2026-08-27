@@ -27,7 +27,7 @@ Look at this tree. The root (`/`) is at the very top. The branches go down to di
        /  |  \
     bin  home  etc
          /  \
-      ines   thomas
+      alice   bob
               /  \
            Music Documents
 ```
@@ -36,11 +36,11 @@ Look at this tree. The root (`/`) is at the very top. The branches go down to di
 What is the topmost folder called?
 a) home b) root c) bin
 
-If you are in /home/thomas, which folder is below you?
-a) Music b) ines c) etc
+If you are in /home/bob, which folder is below you?
+a) Music b) alice c) etc
 
 If you are in Music and want to go to Documents, where must you go first?
-a) etc b) thomas c) bin
+a) etc b) bob c) bin
 ]
 
 = The commands
