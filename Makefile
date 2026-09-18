@@ -1,8 +1,8 @@
-# Detect languages and source files
+# Detect source files in all languages
 LANGS := en fr
 SOURCES := $(foreach lang,$(LANGS),$(wildcard $(lang)/*.typ))
 
-# Map sources to the build/ directory
+# Map source files to the output files
 PDFS := $(patsubst %.typ,build/%.pdf,$(SOURCES))
 
 .PHONY: all clean dirs init-placeholders

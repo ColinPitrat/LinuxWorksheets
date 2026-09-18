@@ -1,4 +1,4 @@
-#import "../template.typ": *
+#import "template.typ": *
 
 #show: doc => cs_sheet(
   title: "3. Making your mark: creating and deleting",

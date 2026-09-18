@@ -1,4 +1,4 @@
-#import "../template.typ": *
+#import "template.typ": *
 
 #show: doc => cs_sheet(
   title: "2. Where am I? Navigating the filesystem",
