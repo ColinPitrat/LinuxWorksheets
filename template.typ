@@ -35,11 +35,11 @@
   // Code block formatting (multiline)
   show raw.where(block: true): it => block(
     fill: rgb("#f4f5f6"),
-    inset: 12pt,
+    inset: 8pt,
     radius: 4pt,
     width: 100%,
     stroke: 1pt + rgb("#e0e3e7"),
-    text(font: ("Fira Code", "DejaVu Sans Mono", "Liberation Mono"), size: 9.5pt, it)
+    text(font: ("Fira Code", "DejaVu Sans Mono", "Liberation Mono"), size: 8pt, it)
   )
 
   // Inline code formatting
@@ -48,8 +48,11 @@
     inset: (x: 3pt, y: 0pt),
     outset: (y: 3pt),
     radius: 2pt,
-    text(font: ("Fira Code", "DejaVu Sans Mono", "Liberation Mono"), size: 9.5pt, it)
+    text(font: ("Fira Code", "DejaVu Sans Mono", "Liberation Mono"), size: 8pt, it)
   )
+
+  // Links
+  show link: set text(fill: blue)
 
   // Title
   block([
